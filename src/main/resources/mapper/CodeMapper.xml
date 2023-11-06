@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yunfei.toolmaker.dao.CodeDao">
+    <sql id="userAllColumns">
+        `id` AS id,
+        `user_name` AS userName,
+        `code`,
+        `run_result` AS runResult,
+        `is_deleted` AS deleted,
+        `gmt_created` AS gmtCreated,
+        `gmt_modified` AS gmtModified,
+        `request_id` AS requestId
+    </sql>
+
+    <select id="query" resultType="com.yunfei.toolmaker.po.CodeDo">
+        SELECT
+        <include refid="userAllColumns"></include>
+        FROM
+        `code_judgement`
+        <where>
+            <if test="requestId != null">
+                AND `code_judgement`.`request_id` = #{requestId}
+            </if>
+            AND
+            `code_judgement`.`is_deleted` = 0
+        </where>
+    </select>
+
+    <insert id="insert" parameterType="com.yunfei.toolmaker.po.CodeDo">
+        INSERT INTO `code_judgement` (`user_name`, `code`, `run_result`)
+        VALUES (#{userName}, #{code}, #{runResult})
+    </insert>
+
+</mapper>

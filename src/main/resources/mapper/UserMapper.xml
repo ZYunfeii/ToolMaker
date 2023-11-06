@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yunfei.toolmaker.dao.UserQueryDao">
+    <sql id="userAllColumns">
+        `id` AS id,
+        `user_name` AS name,
+        `password`,
+        `is_admin` AS adminFlag,
+        `is_deleted` AS deleted,
+        `gmt_created` AS gmtCreated,
+        `gmt_modified` AS gmtModified
+    </sql>
+
+    <select id="query" resultType="com.yunfei.toolmaker.po.UserDo">
+        SELECT
+        <include refid="userAllColumns"></include>
+        FROM
+        `user`
+        <where>
+            <if test="name != null">
+                AND `user`.`user_name` = #{name}
+            </if>
+            <if test="password != null">
+                AND `user`.`password` = #{password}
+            </if>
+            <if test="id != null">
+                AND `user`.`id` = #{id}
+            </if>
+            AND
+            `user`.`is_deleted` = 0
+        </where>
+    </select>
+
+    <insert id="insert" parameterType="com.yunfei.toolmaker.po.UserDo">
+        INSERT INTO `user` (`user_name`, `password`, `is_deleted`)
+        VALUES (#{name}, #{password}, 0)
+    </insert>
+
+</mapper>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yunfei.toolmaker.dao.TimedMsgDao">
+    <sql id="allColumns">
+        `id` AS id,
+        `is_deleted` AS deleted,
+        `gmt_created` AS gmtCreated,
+        `gmt_modified` AS gmtModified,
+        `time_to_send` AS timeToSend,
+        `user_name` AS userName,
+        `content`,
+        `is_send` AS sent,
+        `e_mail` AS email
+    </sql>
+
+    <select id="query" resultType="com.yunfei.toolmaker.po.TimedMsgDo">
+        SELECT
+        <include refid="allColumns"></include>
+        FROM
+        `timed_msg`
+        <where>
+            <if test="userName != null">
+                AND `timed_msg`.`user_name` = #{userName}
+            </if>
+            <if test="id != null">
+                AND `timed_msg`.`id` = #{id}
+            </if>
+            <if test="sent != null">
+                AND `timed_msg`.`is_send` = #{sent}
+            </if>
+            <if test="email != null">
+                AND `timed_msg`.`e_mail` = #{email}
+            </if>
+            <if test="requestId != null">
+                AND `timed_msg`.`request_id` = #{requestId}
+            </if>
+            AND
+            `timed_msg`.`is_deleted` = 0
+        </where>
+    </select>
+
+    <update id="updateTimedTask" parameterType="com.yunfei.toolmaker.po.TimedMsgDo">
+        UPDATE `timed_msg`
+        <set>
+            <if test="sent != null">
+                `is_send` = #{sent},
+            </if>
+            <if test="email != null">
+                `e_mail` = #{email},
+            </if>
+            <if test="content != null">
+                `content` = #{content},
+            </if>
+            <if test="userName != null">
+                `user_name` = #{userName},
+            </if>
+            <if test="timeToSend != null">
+                `time_to_send` = #{timeToSend},
+            </if>
+            `gmt_modified` = now()
+        </set>
+        WHERE
+            `request_id` = #{requestId}
+    </update>
+
+    <insert id="insert" parameterType="com.yunfei.toolmaker.po.TimedMsgDo">
+        INSERT INTO `timed_msg` (`time_to_send`, `content`, `e_mail`, `user_name`, `request_id`)
+        VALUES (#{timeToSend}, #{content}, #{email}, #{userName}, #{requestId})
+    </insert>
+
+</mapper>
