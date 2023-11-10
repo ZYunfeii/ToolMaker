@@ -3,11 +3,15 @@ package com.yunfei.toolmaker;
 import com.alibaba.fastjson.JSON;
 
 import com.alibaba.fastjson.TypeReference;
+import com.yunfei.toolmaker.config.FreeMarkerConfig;
 import com.yunfei.toolmaker.dto.WeatherData;
 import com.yunfei.toolmaker.service.WeatherService;
 import com.yunfei.toolmaker.util.CodeRunner;
 
 import com.yunfei.toolmaker.util.EmailSender;
+import freemarker.template.Configuration;
+import freemarker.template.Template;
+import freemarker.template.TemplateException;
 import lombok.Data;
 import org.junit.After;
 import org.junit.jupiter.api.Test;
@@ -16,6 +20,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.ZSetOperations;
 
 import javax.mail.MessagingException;
+import java.io.*;
 import java.security.GeneralSecurityException;
 import java.util.*;
 import java.util.regex.Matcher;
@@ -126,6 +131,24 @@ class ToolMakerApplicationTests {
     }
 
 
+    @Test
+    public void testTemplate() throws IOException, TemplateException {
+        Configuration configuration = FreeMarkerConfig.getConfig();
 
+        // 获取模板
+        Template template = configuration.getTemplate("template.ftlh");
+
+        // 准备模板数据
+        Map<String, Object> data = new HashMap<>();
+        Map<String, String> filedMap = new HashMap<>();
+        filedMap.put("filed_1", "filed1");
+        filedMap.put("filed_2", "filed2");
+        filedMap.put("filed_3", "filed3");
+        data.put("dao_path", "com.yunfei.dao");
+        data.put("entity_path", "com.yunfei.do");
+
+        // 渲染模板并输出到控制台
+        template.process(data, new OutputStreamWriter(System.out));
+    }
 
 }
