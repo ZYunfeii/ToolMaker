@@ -10,4 +10,5 @@ import java.util.List;
 public interface TimedMsgDao extends BaseMapper<TimedMsgDo> {
     List<TimedMsgDo> query(TimedMsgDo timedMsgDo);
     void updateTimedTask(TimedMsgDo timedMsgDo);
+    List<TimedMsgDo> selectAll();
 }

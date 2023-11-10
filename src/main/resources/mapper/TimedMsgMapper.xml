@@ -14,11 +14,20 @@
         `e_mail` AS email
     </sql>
 
-    <select id="query" resultType="com.yunfei.toolmaker.po.TimedMsgDo">
+    <select id="selectAll" resultType="com.yunfei.toolmaker.po.TimedMsgDo">
         SELECT
         <include refid="allColumns"></include>
         FROM
         `timed_msg`
+        WHERE
+        `timed_msg`.`is_deleted` = 0
+    </select>
+
+    <select id="query" resultType="com.yunfei.toolmaker.po.TimedMsgDo">
+        SELECT
+            <include refid="allColumns"></include>
+        FROM
+            `timed_msg`
         <where>
             <if test="userName != null">
                 AND `timed_msg`.`user_name` = #{userName}

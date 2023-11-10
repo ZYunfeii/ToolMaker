@@ -1,202 +1,208 @@
-15:14:09.607 [restartedMain] INFO  com.yunfei.toolmaker.ToolMakerApplication - Starting ToolMakerApplication using Java 1.8.0_381 on DESKTOP-NFN5QCN with PID 78300 (F:\OneDrive\Java学习\ToolMaker\target\classes started by DELL in F:\OneDrive\Java学习\ToolMaker)
-15:14:09.613 [restartedMain] DEBUG com.yunfei.toolmaker.ToolMakerApplication - Running with Spring Boot v2.5.5, Spring v5.3.10
-15:14:09.614 [restartedMain] INFO  com.yunfei.toolmaker.ToolMakerApplication - No active profile set, falling back to default profiles: default
-15:14:10.037 [restartedMain] DEBUG com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration - Searching for mappers annotated with @Mapper
-15:14:10.038 [restartedMain] DEBUG com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration - Using auto-configuration base package 'com.yunfei.toolmaker'
-15:14:10.181 [restartedMain] DEBUG org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
-15:14:10.483 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
-15:14:10.483 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
-15:14:10.483 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.53]
-15:14:10.562 [restartedMain] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-15:14:10.749 [restartedMain] DEBUG com.zaxxer.hikari.HikariConfig - Driver class com.mysql.jdbc.Driver found in Thread context class loader org.springframework.boot.devtools.restart.classloader.RestartClassLoader@45b58e74
-15:14:10.799 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.CodeDao.query
-15:14:10.816 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.CodeDao.insert
-15:14:10.842 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.CodeDao.delete
-15:14:10.843 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.CodeDao.deleteByMap
-15:14:10.844 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.CodeDao.deleteById
-15:14:10.845 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.CodeDao.deleteBatchIds
-15:14:10.847 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.CodeDao.update
-15:14:10.848 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.CodeDao.updateById
-15:14:10.848 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.CodeDao.selectById
-15:14:10.849 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.CodeDao.selectBatchIds
-15:14:10.850 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.CodeDao.selectByMap
-15:14:10.852 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.CodeDao.selectOne
-15:14:10.854 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.CodeDao.selectCount
-15:14:10.855 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.CodeDao.selectMaps
-15:14:10.857 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.CodeDao.selectMapsPage
-15:14:10.858 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.CodeDao.selectObjs
-15:14:10.859 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.CodeDao.selectList
-15:14:10.859 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.CodeDao.selectPage
-15:14:10.866 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.TimedMsgDao.query
-15:14:10.866 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.TimedMsgDao.updateTimedTask
-15:14:10.866 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.TimedMsgDao.insert
-15:14:10.869 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.TimedMsgDao.delete
-15:14:10.870 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.TimedMsgDao.deleteByMap
-15:14:10.871 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.TimedMsgDao.deleteById
-15:14:10.872 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.TimedMsgDao.deleteBatchIds
-15:14:10.873 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.TimedMsgDao.update
-15:14:10.873 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.TimedMsgDao.updateById
-15:14:10.873 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.TimedMsgDao.selectById
-15:14:10.874 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.TimedMsgDao.selectBatchIds
-15:14:10.874 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.TimedMsgDao.selectByMap
-15:14:10.875 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.TimedMsgDao.selectOne
-15:14:10.875 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.TimedMsgDao.selectCount
-15:14:10.877 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.TimedMsgDao.selectMaps
-15:14:10.878 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.TimedMsgDao.selectMapsPage
-15:14:10.879 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.TimedMsgDao.selectObjs
-15:14:10.879 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.TimedMsgDao.selectList
-15:14:10.880 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.TimedMsgDao.selectPage
-15:14:10.883 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.UserQueryDao.query
-15:14:10.883 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.UserQueryDao.insert
-15:14:10.887 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.UserQueryDao.delete
-15:14:10.888 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.UserQueryDao.deleteByMap
-15:14:10.888 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.UserQueryDao.deleteById
-15:14:10.888 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.UserQueryDao.deleteBatchIds
-15:14:10.889 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.UserQueryDao.update
-15:14:10.890 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.UserQueryDao.updateById
-15:14:10.890 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.UserQueryDao.selectById
-15:14:10.890 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.UserQueryDao.selectBatchIds
-15:14:10.891 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.UserQueryDao.selectByMap
-15:14:10.891 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.UserQueryDao.selectOne
-15:14:10.892 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.UserQueryDao.selectCount
-15:14:10.893 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.UserQueryDao.selectMaps
-15:14:10.894 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.UserQueryDao.selectMapsPage
-15:14:10.894 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.UserQueryDao.selectObjs
-15:14:10.895 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.UserQueryDao.selectList
-15:14:10.895 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.UserQueryDao.selectPage
-15:14:11.296 [pool-2-thread-1] INFO  com.yunfei.toolmaker.service.impl.TimedMsgServiceImpl - the key doesn't exist.
-15:14:11.298 [restartedMain] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+15:58:58.093 [restartedMain] INFO  com.yunfei.toolmaker.ToolMakerApplication - Starting ToolMakerApplication using Java 1.8.0_381 on LAPTOP-RF57B291 with PID 1012 (E:\onedrive-cache\OneDrive\Java学习\ToolMaker\target\classes started by 13615 in E:\onedrive-cache\OneDrive\Java学习\ToolMaker)
+15:58:58.100 [restartedMain] DEBUG com.yunfei.toolmaker.ToolMakerApplication - Running with Spring Boot v2.5.5, Spring v5.3.10
+15:58:58.100 [restartedMain] INFO  com.yunfei.toolmaker.ToolMakerApplication - No active profile set, falling back to default profiles: default
+15:58:58.635 [restartedMain] DEBUG com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration - Searching for mappers annotated with @Mapper
+15:58:58.636 [restartedMain] DEBUG com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration - Using auto-configuration base package 'com.yunfei.toolmaker'
+15:58:58.822 [restartedMain] DEBUG org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+15:58:59.179 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+15:58:59.180 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+15:58:59.180 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.53]
+15:58:59.287 [restartedMain] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+15:58:59.532 [restartedMain] DEBUG com.zaxxer.hikari.HikariConfig - Driver class com.mysql.jdbc.Driver found in Thread context class loader org.springframework.boot.devtools.restart.classloader.RestartClassLoader@46ab5895
+15:58:59.585 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.CodeDao.query
+15:58:59.603 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.CodeDao.insert
+15:58:59.631 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.CodeDao.delete
+15:58:59.633 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.CodeDao.deleteByMap
+15:58:59.634 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.CodeDao.deleteById
+15:58:59.635 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.CodeDao.deleteBatchIds
+15:58:59.638 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.CodeDao.update
+15:58:59.640 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.CodeDao.updateById
+15:58:59.640 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.CodeDao.selectById
+15:58:59.641 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.CodeDao.selectBatchIds
+15:58:59.642 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.CodeDao.selectByMap
+15:58:59.644 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.CodeDao.selectOne
+15:58:59.645 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.CodeDao.selectCount
+15:58:59.647 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.CodeDao.selectMaps
+15:58:59.648 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.CodeDao.selectMapsPage
+15:58:59.649 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.CodeDao.selectObjs
+15:58:59.651 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.CodeDao.selectList
+15:58:59.652 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.CodeDao.selectPage
+15:58:59.659 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.TimedMsgDao.selectAll
+15:58:59.659 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.TimedMsgDao.query
+15:58:59.660 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.TimedMsgDao.updateTimedTask
+15:58:59.660 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.TimedMsgDao.insert
+15:58:59.663 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.TimedMsgDao.delete
+15:58:59.664 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.TimedMsgDao.deleteByMap
+15:58:59.664 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.TimedMsgDao.deleteById
+15:58:59.665 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.TimedMsgDao.deleteBatchIds
+15:58:59.666 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.TimedMsgDao.update
+15:58:59.667 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.TimedMsgDao.updateById
+15:58:59.667 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.TimedMsgDao.selectById
+15:58:59.668 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.TimedMsgDao.selectBatchIds
+15:58:59.669 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.TimedMsgDao.selectByMap
+15:58:59.670 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.TimedMsgDao.selectOne
+15:58:59.671 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.TimedMsgDao.selectCount
+15:58:59.672 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.TimedMsgDao.selectMaps
+15:58:59.673 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.TimedMsgDao.selectMapsPage
+15:58:59.674 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.TimedMsgDao.selectObjs
+15:58:59.675 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.TimedMsgDao.selectList
+15:58:59.676 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.TimedMsgDao.selectPage
+15:58:59.680 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.UserQueryDao.query
+15:58:59.680 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.UserQueryDao.insert
+15:58:59.683 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.UserQueryDao.delete
+15:58:59.683 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.UserQueryDao.deleteByMap
+15:58:59.684 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.UserQueryDao.deleteById
+15:58:59.685 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.UserQueryDao.deleteBatchIds
+15:58:59.686 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.UserQueryDao.update
+15:58:59.686 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.UserQueryDao.updateById
+15:58:59.686 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.UserQueryDao.selectById
+15:58:59.687 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.UserQueryDao.selectBatchIds
+15:58:59.687 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.UserQueryDao.selectByMap
+15:58:59.688 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.UserQueryDao.selectOne
+15:58:59.689 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.UserQueryDao.selectCount
+15:58:59.690 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.UserQueryDao.selectMaps
+15:58:59.690 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.UserQueryDao.selectMapsPage
+15:58:59.691 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.UserQueryDao.selectObjs
+15:58:59.692 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.UserQueryDao.selectList
+15:58:59.693 [restartedMain] DEBUG com.baomidou.mybatisplus.core.MybatisConfiguration - addMappedStatement: com.yunfei.toolmaker.dao.UserQueryDao.selectPage
+15:59:00.293 [restartedMain] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
 	c.y.t.c.AuthController:
-	{POST [/login]}: login(UserRegisterInfo,HttpSession)
 	{POST [/register]}: register(UserRegisterInfo)
 	{GET [/user/info]}: getUserInfo(HttpSession)
-15:14:11.299 [restartedMain] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+	{POST [/login]}: login(UserRegisterInfo,HttpSession)
+15:59:00.295 [restartedMain] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
 	c.y.t.c.ChartController:
 	{GET [/chart/weather]}: getWeatherInfo(String)
-15:14:11.299 [restartedMain] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+15:59:00.295 [restartedMain] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
 	c.y.t.c.CodeController:
 	{POST [/code/submit]}: codeSubmit(CodeSubmitInfo,HttpSession)
-15:14:11.299 [restartedMain] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+15:59:00.296 [restartedMain] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
 	c.y.t.c.LogController:
 	{GET [/logs]}: handleLog(HttpSession)
-15:14:11.299 [restartedMain] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+15:59:00.296 [restartedMain] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
 	c.y.t.c.TimedMsgController:
 	{POST [/timedmsg/submit]}: register(TimedMsgSubmitData,HttpSession)
-15:14:11.302 [restartedMain] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+	{GET [/testlimit]}: testLimit(Integer,Integer)
+15:59:00.299 [restartedMain] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
 	o.s.b.a.w.s.e.BasicErrorController:
-	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
 	{ [/error]}: error(HttpServletRequest)
-15:14:11.308 [restartedMain] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 'beanNameHandlerMapping' {}
-15:14:11.415 [restartedMain] DEBUG com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration - Not found configuration for registering mapper bean using @MapperScan, MapperFactoryBean and MapperScannerConfigurer.
-15:14:11.543 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
-15:14:11.583 [restartedMain] INFO  com.yunfei.toolmaker.ToolMakerApplication - Started ToolMakerApplication in 2.371 seconds (JVM running for 3.239)
-15:14:16.278 [pool-2-thread-1] INFO  com.yunfei.toolmaker.service.impl.TimedMsgServiceImpl - the key doesn't exist.
-15:14:20.139 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-15:14:20.280 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - HikariPool-1 - configuration:
-15:14:20.281 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - allowPoolSuspension................................false
-15:14:20.281 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - autoCommit................................true
-15:14:20.281 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - catalog................................none
-15:14:20.281 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - connectionInitSql................................none
-15:14:20.281 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - connectionTestQuery................................none
-15:14:20.281 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - connectionTimeout................................30000
-15:14:20.281 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - dataSource................................none
-15:14:20.281 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceClassName................................none
-15:14:20.282 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceJNDI................................none
-15:14:20.282 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceProperties................................{password=<masked>}
-15:14:20.282 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - driverClassName................................"com.mysql.jdbc.Driver"
-15:14:20.282 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - exceptionOverrideClassName................................none
-15:14:20.282 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - healthCheckProperties................................{}
-15:14:20.282 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - healthCheckRegistry................................none
-15:14:20.282 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - idleTimeout................................600000
-15:14:20.282 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - initializationFailTimeout................................1
-15:14:20.282 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - isolateInternalQueries................................false
-15:14:20.282 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - jdbcUrl................................jdbc:mysql://43.143.229.22:3306/toolmaker
-15:14:20.282 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - keepaliveTime................................0
-15:14:20.282 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - leakDetectionThreshold................................0
-15:14:20.284 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - maxLifetime................................1800000
-15:14:20.284 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - maximumPoolSize................................10
-15:14:20.284 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - metricRegistry................................none
-15:14:20.284 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - metricsTrackerFactory................................none
-15:14:20.284 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - minimumIdle................................10
-15:14:20.284 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - password................................<masked>
-15:14:20.284 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - poolName................................"HikariPool-1"
-15:14:20.284 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - readOnly................................false
-15:14:20.284 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - registerMbeans................................false
-15:14:20.284 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - scheduledExecutor................................none
-15:14:20.284 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - schema................................none
-15:14:20.284 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - threadFactory................................internal
-15:14:20.284 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - transactionIsolation................................default
-15:14:20.284 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - username................................"root"
-15:14:20.284 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - validationTimeout................................5000
-15:14:20.284 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-15:14:20.286 [http-nio-8080-exec-1] WARN  com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-15:14:20.286 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.util.DriverDataSource - Driver class com.mysql.jdbc.Driver found in Thread context class loader TomcatEmbeddedWebappClassLoader
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+15:59:00.305 [restartedMain] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 'beanNameHandlerMapping' {}
+15:59:00.424 [pool-2-thread-1] INFO  com.yunfei.toolmaker.service.impl.TimedMsgServiceImpl - the key doesn't exist.
+15:59:00.478 [restartedMain] DEBUG com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration - Not found configuration for registering mapper bean using @MapperScan, MapperFactoryBean and MapperScannerConfigurer.
+15:59:00.673 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+15:59:00.780 [restartedMain] INFO  com.yunfei.toolmaker.ToolMakerApplication - Started ToolMakerApplication in 3.1 seconds (JVM running for 4.386)
+15:59:05.360 [pool-2-thread-1] INFO  com.yunfei.toolmaker.service.impl.TimedMsgServiceImpl - the key doesn't exist.
+15:59:10.414 [pool-2-thread-1] INFO  com.yunfei.toolmaker.service.impl.TimedMsgServiceImpl - the key doesn't exist.
+15:59:10.922 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+15:59:10.991 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - HikariPool-1 - configuration:
+15:59:10.992 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - allowPoolSuspension................................false
+15:59:10.992 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - autoCommit................................true
+15:59:10.992 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - catalog................................none
+15:59:10.992 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - connectionInitSql................................none
+15:59:10.992 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - connectionTestQuery................................none
+15:59:10.992 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - connectionTimeout................................30000
+15:59:10.992 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - dataSource................................none
+15:59:10.992 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceClassName................................none
+15:59:10.992 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceJNDI................................none
+15:59:10.992 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceProperties................................{password=<masked>}
+15:59:10.994 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - driverClassName................................"com.mysql.jdbc.Driver"
+15:59:10.994 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - exceptionOverrideClassName................................none
+15:59:10.994 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - healthCheckProperties................................{}
+15:59:10.994 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - healthCheckRegistry................................none
+15:59:10.994 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - idleTimeout................................600000
+15:59:10.994 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - initializationFailTimeout................................1
+15:59:10.994 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - isolateInternalQueries................................false
+15:59:10.994 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - jdbcUrl................................jdbc:mysql://43.143.229.22:3306/toolmaker
+15:59:10.994 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - keepaliveTime................................0
+15:59:10.994 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - leakDetectionThreshold................................0
+15:59:10.994 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - maxLifetime................................1800000
+15:59:10.994 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - maximumPoolSize................................10
+15:59:10.994 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - metricRegistry................................none
+15:59:10.994 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - metricsTrackerFactory................................none
+15:59:10.994 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - minimumIdle................................10
+15:59:10.994 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - password................................<masked>
+15:59:10.995 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - poolName................................"HikariPool-1"
+15:59:10.995 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - readOnly................................false
+15:59:10.995 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - registerMbeans................................false
+15:59:10.995 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - scheduledExecutor................................none
+15:59:10.995 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - schema................................none
+15:59:10.995 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - threadFactory................................internal
+15:59:10.995 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - transactionIsolation................................default
+15:59:10.995 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - username................................"root"
+15:59:10.995 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.HikariConfig - validationTimeout................................5000
+15:59:10.995 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+15:59:10.996 [http-nio-8080-exec-1] WARN  com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+15:59:10.996 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.util.DriverDataSource - Driver class com.mysql.jdbc.Driver found in Thread context class loader TomcatEmbeddedWebappClassLoader
   context: ROOT
   delegate: true
 ----------> Parent Classloader:
-org.springframework.boot.devtools.restart.classloader.RestartClassLoader@45b58e74
+org.springframework.boot.devtools.restart.classloader.RestartClassLoader@46ab5895
 
-15:14:21.043 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@48f5193d
-15:14:21.045 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-15:14:21.147 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=1, active=1, idle=0, waiting=0)
-15:14:21.275 [pool-2-thread-1] INFO  com.yunfei.toolmaker.service.impl.TimedMsgServiceImpl - the key doesn't exist.
-15:14:21.911 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@388f7cc4
-15:14:21.968 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@30318ad7
-15:14:22.237 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@495f3e40
-15:14:22.295 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@666adcbc
-15:14:22.346 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@8f7de77
-15:14:22.609 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5eaa6db3
-15:14:22.878 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@22177b93
-15:14:23.945 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6c913e4c
-15:14:24.200 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6a659451
-15:14:24.201 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=10, active=0, idle=10, waiting=0)
-15:14:26.274 [pool-2-thread-1] INFO  com.yunfei.toolmaker.service.impl.TimedMsgServiceImpl - the key doesn't exist.
-15:14:31.275 [pool-2-thread-1] INFO  com.yunfei.toolmaker.service.impl.TimedMsgServiceImpl - the key doesn't exist.
-15:14:36.278 [pool-2-thread-1] INFO  com.yunfei.toolmaker.service.impl.TimedMsgServiceImpl - the key doesn't exist.
-15:14:41.274 [pool-2-thread-1] INFO  com.yunfei.toolmaker.service.impl.TimedMsgServiceImpl - the key doesn't exist.
-15:14:46.488 [pool-2-thread-1] INFO  com.yunfei.toolmaker.service.impl.TimedMsgServiceImpl - the key doesn't exist.
-15:14:51.148 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
-15:14:51.148 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
-15:14:51.272 [pool-2-thread-1] INFO  com.yunfei.toolmaker.service.impl.TimedMsgServiceImpl - the key doesn't exist.
-15:14:56.272 [pool-2-thread-1] INFO  com.yunfei.toolmaker.service.impl.TimedMsgServiceImpl - the key doesn't exist.
-15:15:01.277 [pool-2-thread-1] INFO  com.yunfei.toolmaker.service.impl.TimedMsgServiceImpl - the key doesn't exist.
-15:15:06.275 [pool-2-thread-1] INFO  com.yunfei.toolmaker.service.impl.TimedMsgServiceImpl - the key doesn't exist.
-15:15:11.275 [pool-2-thread-1] INFO  com.yunfei.toolmaker.service.impl.TimedMsgServiceImpl - the key doesn't exist.
-15:15:16.278 [pool-2-thread-1] INFO  com.yunfei.toolmaker.service.impl.TimedMsgServiceImpl - the key doesn't exist.
-15:15:21.149 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
-15:15:21.149 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
-15:15:21.277 [pool-2-thread-1] INFO  com.yunfei.toolmaker.service.impl.TimedMsgServiceImpl - the key doesn't exist.
-15:15:26.273 [pool-2-thread-1] INFO  com.yunfei.toolmaker.service.impl.TimedMsgServiceImpl - the key doesn't exist.
-15:15:31.278 [pool-2-thread-1] INFO  com.yunfei.toolmaker.service.impl.TimedMsgServiceImpl - the key doesn't exist.
-15:15:36.282 [pool-2-thread-1] INFO  com.yunfei.toolmaker.service.impl.TimedMsgServiceImpl - the key doesn't exist.
-15:15:41.274 [pool-2-thread-1] INFO  com.yunfei.toolmaker.service.impl.TimedMsgServiceImpl - the key doesn't exist.
-15:15:46.278 [pool-2-thread-1] INFO  com.yunfei.toolmaker.service.impl.TimedMsgServiceImpl - the key doesn't exist.
-15:15:51.151 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
-15:15:51.151 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
-15:15:51.280 [pool-2-thread-1] INFO  com.yunfei.toolmaker.service.impl.TimedMsgServiceImpl - the key doesn't exist.
-15:15:56.278 [pool-2-thread-1] INFO  com.yunfei.toolmaker.service.impl.TimedMsgServiceImpl - the key doesn't exist.
-15:16:01.275 [pool-2-thread-1] INFO  com.yunfei.toolmaker.service.impl.TimedMsgServiceImpl - the key doesn't exist.
-15:16:06.271 [pool-2-thread-1] INFO  com.yunfei.toolmaker.service.impl.TimedMsgServiceImpl - the key doesn't exist.
-15:16:11.283 [pool-2-thread-1] INFO  com.yunfei.toolmaker.service.impl.TimedMsgServiceImpl - the key doesn't exist.
-15:16:16.275 [pool-2-thread-1] INFO  com.yunfei.toolmaker.service.impl.TimedMsgServiceImpl - the key doesn't exist.
-15:16:21.152 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
-15:16:21.152 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
-15:16:21.277 [pool-2-thread-1] INFO  com.yunfei.toolmaker.service.impl.TimedMsgServiceImpl - the key doesn't exist.
-15:16:26.274 [pool-2-thread-1] INFO  com.yunfei.toolmaker.service.impl.TimedMsgServiceImpl - the key doesn't exist.
-15:16:31.278 [pool-2-thread-1] INFO  com.yunfei.toolmaker.service.impl.TimedMsgServiceImpl - the key doesn't exist.
-15:16:36.277 [pool-2-thread-1] INFO  com.yunfei.toolmaker.service.impl.TimedMsgServiceImpl - the key doesn't exist.
-15:16:41.279 [pool-2-thread-1] INFO  com.yunfei.toolmaker.service.impl.TimedMsgServiceImpl - the key doesn't exist.
-15:16:45.922 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-15:16:45.923 [SpringApplicationShutdownHook] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Before shutdown stats (total=10, active=0, idle=10, waiting=0)
-15:16:45.924 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@48f5193d: (connection evicted)
-15:16:45.925 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@388f7cc4: (connection evicted)
-15:16:45.926 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@30318ad7: (connection evicted)
-15:16:45.927 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@495f3e40: (connection evicted)
-15:16:45.927 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@666adcbc: (connection evicted)
-15:16:45.928 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@8f7de77: (connection evicted)
-15:16:45.928 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@5eaa6db3: (connection evicted)
-15:16:45.929 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@22177b93: (connection evicted)
-15:16:45.930 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@6c913e4c: (connection evicted)
-15:16:45.931 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@6a659451: (connection evicted)
-15:16:45.932 [SpringApplicationShutdownHook] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After shutdown stats (total=0, active=0, idle=0, waiting=0)
-15:16:45.932 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+15:59:11.852 [http-nio-8080-exec-1] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5552f3a4
+15:59:11.853 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+15:59:11.966 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=1, active=0, idle=1, waiting=0)
+15:59:12.228 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@61ebfef7
+15:59:12.429 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@31457ae7
+15:59:12.695 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2e74cefe
+15:59:12.940 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2ed5683
+15:59:13.174 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2ad5a8b
+15:59:13.450 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1e8f6f0b
+15:59:13.724 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@16b78786
+15:59:14.003 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6064d81a
+15:59:14.237 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@10d02a79
+15:59:14.237 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=10, active=0, idle=10, waiting=0)
+15:59:15.449 [pool-2-thread-1] INFO  com.yunfei.toolmaker.service.impl.TimedMsgServiceImpl - the key doesn't exist.
+15:59:20.313 [pool-2-thread-1] INFO  com.yunfei.toolmaker.service.impl.TimedMsgServiceImpl - the key doesn't exist.
+15:59:25.360 [pool-2-thread-1] INFO  com.yunfei.toolmaker.service.impl.TimedMsgServiceImpl - the key doesn't exist.
+15:59:30.331 [pool-2-thread-1] INFO  com.yunfei.toolmaker.service.impl.TimedMsgServiceImpl - the key doesn't exist.
+15:59:35.330 [pool-2-thread-1] INFO  com.yunfei.toolmaker.service.impl.TimedMsgServiceImpl - the key doesn't exist.
+15:59:40.306 [pool-2-thread-1] INFO  com.yunfei.toolmaker.service.impl.TimedMsgServiceImpl - the key doesn't exist.
+15:59:41.968 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+15:59:41.968 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+15:59:45.333 [pool-2-thread-1] INFO  com.yunfei.toolmaker.service.impl.TimedMsgServiceImpl - the key doesn't exist.
+15:59:50.416 [pool-2-thread-1] INFO  com.yunfei.toolmaker.service.impl.TimedMsgServiceImpl - the key doesn't exist.
+16:00:11.980 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+16:00:11.980 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+16:00:41.988 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+16:00:41.988 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+16:01:12.000 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+16:01:12.000 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+16:01:42.007 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+16:01:42.007 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+16:02:12.018 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+16:02:12.018 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+16:02:42.020 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+16:02:42.020 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+16:03:12.027 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+16:03:12.027 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+16:03:42.043 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+16:03:42.043 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+16:04:12.044 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+16:04:12.044 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+16:04:42.058 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+16:04:42.058 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+16:05:12.068 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+16:05:12.068 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+16:05:42.077 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+16:05:42.077 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+16:06:12.079 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+16:06:12.079 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+16:06:42.092 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+16:06:42.092 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+16:07:12.095 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+16:07:12.095 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+16:07:19.725 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+16:07:19.726 [SpringApplicationShutdownHook] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Before shutdown stats (total=10, active=0, idle=10, waiting=0)
+16:07:19.726 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@5552f3a4: (connection evicted)
+16:07:19.728 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@61ebfef7: (connection evicted)
+16:07:19.729 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@31457ae7: (connection evicted)
+16:07:19.729 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@2e74cefe: (connection evicted)
+16:07:19.730 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@2ed5683: (connection evicted)
+16:07:19.731 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@2ad5a8b: (connection evicted)
+16:07:19.732 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@1e8f6f0b: (connection evicted)
+16:07:19.732 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@16b78786: (connection evicted)
+16:07:19.733 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@6064d81a: (connection evicted)
+16:07:19.733 [HikariPool-1 connection closer] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@10d02a79: (connection evicted)
+16:07:19.733 [SpringApplicationShutdownHook] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After shutdown stats (total=0, active=0, idle=0, waiting=0)
+16:07:19.733 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
