@@ -24,4 +24,37 @@
         </where>
     </select>
 
+    <insert id="insert" parameterType="${entityPath}">
+        INSERT INTO `${tableName}` (<#list filedMap?keys as key>`${key}`<#if !key?is_last>,</#if></#list>)
+        VALUES (<#list filedMap?keys as key>${r"#{"}${filedMap[key]}${r"}"}<#if !key?is_last>,</#if></#list>)
+    </insert>
+
+    <update id="update" parameterType="${entityPath}">
+        UPDATE `${tableName}`
+        <set>
+            <#list filedMap?keys as key>
+                <if test="${filedMap[key]} != null">
+                    `${tableName}`.`${key}` = ${r"#{"}${filedMap[key]}${r"}"},
+                </if>
+            </#list>
+            `gmt_modified` = now()
+        </set>
+        WHERE
+        [[这里替换为条件]]
+    </update>
+
+    <update id="delete" parameterType="${entityPath}">
+        UPDATE `${tableName}`
+        SET is_deleted = 1
+        WHERE
+        <choose>
+            <#list filedMap?keys as key>
+            <when test="${filedMap[key]} != null">
+                `${tableName}`.`${key}` = ${r"#{"}${filedMap[key]}${r"}"}
+            </when>
+            </#list>
+        </choose>
+        AND is_deleted = 0
+    </update>
+
 </mapper>

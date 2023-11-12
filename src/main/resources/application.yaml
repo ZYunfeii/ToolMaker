@@ -31,6 +31,10 @@ email-sender:
   senderEmail: 1361573692@qq.com
   password: fqpobvgkwuotffjj
 
+codegen:
+  mybatis-mapper:
+    templateName: template.ftlh
+
 logging:
   level:
     root: debug
