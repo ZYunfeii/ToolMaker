@@ -25,6 +25,7 @@ import java.security.GeneralSecurityException;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Stream;
 
 @SpringBootTest
 class ToolMakerApplicationTests {
@@ -151,6 +152,11 @@ class ToolMakerApplicationTests {
 
         // 渲染模板并输出到控制台
         template.process(data, new OutputStreamWriter(System.out));
+    }
+
+    @Test
+    public void test02() {
+
     }
 
 }

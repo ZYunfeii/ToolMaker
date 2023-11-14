@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.io.StringWriter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,7 +26,7 @@ public class MybatisXmlGenServiceImpl implements MybatisXmlGenService {
     }
 
     @Override
-    public void mapperGenToStream(OutputStream outputStream, MybatisMapperXmlGenInfo mybatisMapperXmlGenInfo) {
+    public String mapperGenToStream(MybatisMapperXmlGenInfo mybatisMapperXmlGenInfo) {
         Configuration configuration = FreeMarkerConfig.getConfig();
         Template template;
         try {
@@ -42,12 +43,13 @@ public class MybatisXmlGenServiceImpl implements MybatisXmlGenService {
         data.put("daoPath", mybatisMapperXmlGenInfo.getDaoPath());
         data.put("entityPath", mybatisMapperXmlGenInfo.getEntityPath());
         data.put("tableName", mybatisMapperXmlGenInfo.getTableName());
-
+        StringWriter stringWriter = new StringWriter();
         // 渲染模板并输出到控制台
         try {
-            template.process(data, new OutputStreamWriter(outputStream));
+            template.process(data, stringWriter);
         } catch (TemplateException | IOException e) {
             throw new RuntimeException(e);
         }
+        return stringWriter.toString();
     }
 }
