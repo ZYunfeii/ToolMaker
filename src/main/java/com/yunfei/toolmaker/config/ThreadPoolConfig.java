@@ -7,18 +7,18 @@ import java.util.concurrent.*;
 
 @Configuration
 public class ThreadPoolConfig {
-//    @Bean
-//    public ThreadPoolExecutor threadPoolExecutor() {
-//        return new ThreadPoolExecutor(
-//                4,
-//                8,
-//                60,
-//                TimeUnit.SECONDS,
-//                new LinkedBlockingDeque<>(100000),
-//                Executors.defaultThreadFactory(),
-//                new ThreadPoolExecutor.AbortPolicy()
-//        );
-//    }
+    @Bean
+    public ThreadPoolExecutor threadPoolExecutor() {
+        return new ThreadPoolExecutor(
+                3,
+                8,
+                20,
+                TimeUnit.SECONDS,
+                new LinkedBlockingDeque<>(100000),
+                Executors.defaultThreadFactory(),
+                new ThreadPoolExecutor.AbortPolicy()
+        );
+    }
 
     @Bean
     public ScheduledThreadPoolExecutor scheduledThreadPoolExecutor() {

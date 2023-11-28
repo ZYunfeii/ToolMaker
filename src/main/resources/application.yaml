@@ -1,14 +1,14 @@
 
 spring:
   datasource:
-    url: jdbc:mysql://43.143.229.22:3306/toolmaker
+    url: jdbc:mysql://123.56.98.228:3306/toolmaker
     username: root
-    password: yunfei
+    password: YUNFEI
     driver-class-name: com.mysql.jdbc.Driver
   redis:
     port: 6379
-    host: 43.143.229.22
-    password: yunfei
+    host: 123.56.98.228
+    password: YUNFEI
   session:
     store-type: redis
 
