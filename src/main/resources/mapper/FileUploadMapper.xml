@@ -11,7 +11,18 @@
         file_name AS fileName,
         type AS type,
         size AS size,
-        is_deleted AS isDeleted
+        is_deleted AS deleted
+    </sql>
+
+    <sql id="allColumnsWithoutPayload">
+        id AS id,
+        gmt_created AS gmtCreated,
+        gmt_modified AS gmtModified,
+        user_name AS userName,
+        file_name AS fileName,
+        type AS type,
+        size AS size,
+        is_deleted AS deleted
     </sql>
 
     <select id="query" resultType="com.yunfei.toolmaker.po.FileDo">
@@ -44,8 +55,46 @@
             <if test="size != null">
                 AND `file_upload`.`size` = #{size}
             </if>
-            <if test="isDeleted != null">
-                AND `file_upload`.`is_deleted` = #{isDeleted}
+            <if test="deleted != null">
+                AND `file_upload`.`is_deleted` = #{deleted}
+            </if>
+            AND
+            `file_upload`.`is_deleted` = 0
+        </where>
+    </select>
+
+    <select id="queryWithoutPayload" resultType="com.yunfei.toolmaker.po.FileDo">
+        SELECT
+        <include refid="allColumnsWithoutPayload"></include>
+        FROM
+        `file_upload`
+        <where>
+            <if test="id != null">
+                AND `file_upload`.`id` = #{id}
+            </if>
+            <if test="gmtCreated != null">
+                AND `file_upload`.`gmt_created` = #{gmtCreated}
+            </if>
+            <if test="gmtModified != null">
+                AND `file_upload`.`gmt_modified` = #{gmtModified}
+            </if>
+            <if test="payload != null">
+                AND `file_upload`.`payload` = #{payload}
+            </if>
+            <if test="userName != null">
+                AND `file_upload`.`user_name` = #{userName}
+            </if>
+            <if test="fileName != null">
+                AND `file_upload`.`file_name` = #{fileName}
+            </if>
+            <if test="type != null">
+                AND `file_upload`.`type` = #{type}
+            </if>
+            <if test="size != null">
+                AND `file_upload`.`size` = #{size}
+            </if>
+            <if test="deleted != null">
+                AND `file_upload`.`is_deleted` = #{deleted}
             </if>
             AND
             `file_upload`.`is_deleted` = 0
@@ -84,8 +133,8 @@
             <if test="size != null">
                 `file_upload`.`size` = #{size},
             </if>
-            <if test="isDeleted != null">
-                `file_upload`.`is_deleted` = #{isDeleted},
+            <if test="deleted != null">
+                `file_upload`.`is_deleted` = #{deleted},
             </if>
             `gmt_modified` = now()
         </set>
@@ -122,8 +171,8 @@
             <when test="size != null">
                 `file_upload`.`size` = #{size}
             </when>
-            <when test="isDeleted != null">
-                `file_upload`.`is_deleted` = #{isDeleted}
+            <when test="deleted != null">
+                `file_upload`.`is_deleted` = #{deleted}
             </when>
         </choose>
         AND is_deleted = 0

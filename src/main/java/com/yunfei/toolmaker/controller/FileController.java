@@ -5,24 +5,22 @@ import com.yunfei.toolmaker.dto.UserRegisterInfo;
 import com.yunfei.toolmaker.exception.ErrorCodeEnum;
 import com.yunfei.toolmaker.service.FileService;
 import com.yunfei.toolmaker.service.param.FileSaveParam;
+import com.yunfei.toolmaker.service.response.FileResponse;
+import com.yunfei.toolmaker.service.response.FilesInfoResponse;
 import com.yunfei.toolmaker.util.R;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
-import java.util.Map;
 
-import static com.yunfei.toolmaker.constant.AuthServerConstant.LOGIN_USER;
 
 @RestController
-public class UploadController {
+public class FileController extends BaseController {
     @Autowired
     private FileService fileService;
     @PostMapping(value ="/upload/file", consumes = "multipart/form-data")
@@ -43,16 +41,12 @@ public class UploadController {
             // 获取文件的名称
             String fileName = file.getOriginalFilename();
 
-            Object attribute = session.getAttribute(LOGIN_USER);
-            UserRegisterInfo userRegisterInfo = (UserRegisterInfo) attribute;
-
-
             FileSaveParam fileSaveParam = new FileSaveParam();
             fileSaveParam.setFileName(fileName);
             fileSaveParam.setSize(fileSize);
             fileSaveParam.setType(fileType);
             fileSaveParam.setPayload(fileBytes);
-            fileSaveParam.setUserName(userRegisterInfo.getId());
+            fileSaveParam.setUserName(getUserName(session));
             fileService.saveFile(fileSaveParam);
 
             return new ResponseEntity<>(R.ok(), HttpStatus.OK);
@@ -61,4 +55,36 @@ public class UploadController {
             return new ResponseEntity<>(R.error(ErrorCodeEnum.FILE_UPLOAD_ERROR.getCode(), ErrorCodeEnum.FILE_UPLOAD_ERROR.getMsg()), HttpStatus.BAD_REQUEST);
         }
     }
+
+    @GetMapping("/filelist")
+    public R getFilesInfo(HttpSession session) {
+        String userName = getUserName(session);
+        FilesInfoResponse filesInfoWithUserName = fileService.getFilesInfoWithUserName(userName);
+        return R.ok().setData(filesInfoWithUserName.getFileInfoList());
+    }
+
+    @GetMapping("/download/{filename}")
+    public ResponseEntity<byte[]> downloadFile(@PathVariable String filename, HttpSession session) {
+        FileResponse response = fileService.getFileBytesWithFileName(filename);
+
+        HttpHeaders headers = new HttpHeaders();
+        if (!response.getUserName().equals(getUserName(session))) {
+            return ResponseEntity.badRequest().headers(headers).body("File is not for you!".getBytes());
+        }
+        headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + filename);
+        return ResponseEntity.ok()
+                .headers(headers)
+                .contentLength(response.getSize())
+                .body(response.getPayload());
+    }
+
+    @DeleteMapping("/delete/{filename}")
+    public R deleteFile(@PathVariable String filename, HttpSession session) {
+        if (!fileService.getUserNameFromFileName(filename).equals(getUserName(session))) {
+            return R.error("File is not for you!");
+        }
+        fileService.deleteFile(filename);
+        return R.ok("delete successfully!");
+    }
+
 }

@@ -15,5 +15,5 @@ public class FileDo {
     private String fileName;
     private String type;
     private Long size;
-    private Boolean isDeleted;
+    private Boolean deleted;
 }

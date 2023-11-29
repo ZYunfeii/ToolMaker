@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 import static com.yunfei.toolmaker.constant.AuthServerConstant.LOGIN_USER;
 
 @RestController
-public class CodeController {
+public class CodeController extends BaseController{
     @Autowired
     private CodeService codeService;
 
@@ -28,13 +28,9 @@ public class CodeController {
         } catch (Exception e) {
             return R.error(e.getMessage());
         }
-        Object attribute = session.getAttribute(LOGIN_USER);
-        if (attribute == null) {
-            return R.error("请先登录再使用!");
-        }
-        UserRegisterInfo userRegisterInfo = (UserRegisterInfo) attribute;
+
         CodeSaveParam param = new CodeSaveParam();
-        param.setUserName(userRegisterInfo.getId());
+        param.setUserName(getUserName(session));
         param.setCode(info.getEditor());
         param.setRunResult(codeJudgementResponse.getRunResult());
         codeService.codeResultSave(param);
