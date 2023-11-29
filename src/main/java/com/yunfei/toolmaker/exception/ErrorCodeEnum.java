@@ -6,7 +6,9 @@ public enum ErrorCodeEnum {
     USER_LOGIN_PASSWORD_NOT_MATCH_EXCEPTION(500, "密码不正确"),
     USER_NOT_LOGIN(500, "请先登录"),
     USER_NOT_ADMIN(500, "您不是管理员"),
-    TIMED_MSG_PARA_ERROR(500, "参数不正确");
+    TIMED_MSG_PARA_ERROR(500, "参数不正确"),
+    FILE_UPLOAD_EMPTY_ERROR(500, "上传文件为空"),
+    FILE_UPLOAD_ERROR(500, "上传文件后端处理错误");
     private final int code;
     private final String msg;
     ErrorCodeEnum(int code, String msg) {

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yunfei.toolmaker.dao.FileDao">
+    <sql id="allColumns">
+        id AS id,
+        gmt_created AS gmtCreated,
+        gmt_modified AS gmtModified,
+        payload AS payload,
+        user_name AS userName,
+        file_name AS fileName,
+        type AS type,
+        size AS size,
+        is_deleted AS isDeleted
+    </sql>
+
+    <select id="query" resultType="com.yunfei.toolmaker.po.FileDo">
+        SELECT
+        <include refid="allColumns"></include>
+        FROM
+        `file_upload`
+        <where>
+            <if test="id != null">
+                AND `file_upload`.`id` = #{id}
+            </if>
+            <if test="gmtCreated != null">
+                AND `file_upload`.`gmt_created` = #{gmtCreated}
+            </if>
+            <if test="gmtModified != null">
+                AND `file_upload`.`gmt_modified` = #{gmtModified}
+            </if>
+            <if test="payload != null">
+                AND `file_upload`.`payload` = #{payload}
+            </if>
+            <if test="userName != null">
+                AND `file_upload`.`user_name` = #{userName}
+            </if>
+            <if test="fileName != null">
+                AND `file_upload`.`file_name` = #{fileName}
+            </if>
+            <if test="type != null">
+                AND `file_upload`.`type` = #{type}
+            </if>
+            <if test="size != null">
+                AND `file_upload`.`size` = #{size}
+            </if>
+            <if test="isDeleted != null">
+                AND `file_upload`.`is_deleted` = #{isDeleted}
+            </if>
+            AND
+            `file_upload`.`is_deleted` = 0
+        </where>
+    </select>
+
+    <insert id="insert" parameterType="com.yunfei.toolmaker.po.FileDo">
+        INSERT INTO `file_upload` (`id`,`gmt_created`,`gmt_modified`,`payload`,`user_name`,`file_name`,`type`,`size`,`is_deleted`)
+        VALUES (#{id},now(),now(),#{payload},#{userName},#{fileName},#{type},#{size},0)
+    </insert>
+
+    <update id="update" parameterType="com.yunfei.toolmaker.po.FileDo">
+        UPDATE `file_upload`
+        <set>
+            <if test="id != null">
+                `file_upload`.`id` = #{id},
+            </if>
+            <if test="gmtCreated != null">
+                `file_upload`.`gmt_created` = #{gmtCreated},
+            </if>
+            <if test="gmtModified != null">
+                `file_upload`.`gmt_modified` = #{gmtModified},
+            </if>
+            <if test="payload != null">
+                `file_upload`.`payload` = #{payload},
+            </if>
+            <if test="userName != null">
+                `file_upload`.`user_name` = #{userName},
+            </if>
+            <if test="fileName != null">
+                `file_upload`.`file_name` = #{fileName},
+            </if>
+            <if test="type != null">
+                `file_upload`.`type` = #{type},
+            </if>
+            <if test="size != null">
+                `file_upload`.`size` = #{size},
+            </if>
+            <if test="isDeleted != null">
+                `file_upload`.`is_deleted` = #{isDeleted},
+            </if>
+            `gmt_modified` = now()
+        </set>
+        WHERE
+        `file_upload`.`id` = #{id}
+    </update>
+
+    <update id="delete" parameterType="com.yunfei.toolmaker.po.FileDo">
+        UPDATE `file_upload`
+        SET is_deleted = 1
+        WHERE
+        <choose>
+            <when test="id != null">
+                `file_upload`.`id` = #{id}
+            </when>
+            <when test="gmtCreated != null">
+                `file_upload`.`gmt_created` = #{gmtCreated}
+            </when>
+            <when test="gmtModified != null">
+                `file_upload`.`gmt_modified` = #{gmtModified}
+            </when>
+            <when test="payload != null">
+                `file_upload`.`payload` = #{payload}
+            </when>
+            <when test="userName != null">
+                `file_upload`.`user_name` = #{userName}
+            </when>
+            <when test="fileName != null">
+                `file_upload`.`file_name` = #{fileName}
+            </when>
+            <when test="type != null">
+                `file_upload`.`type` = #{type}
+            </when>
+            <when test="size != null">
+                `file_upload`.`size` = #{size}
+            </when>
+            <when test="isDeleted != null">
+                `file_upload`.`is_deleted` = #{isDeleted}
+            </when>
+        </choose>
+        AND is_deleted = 0
+    </update>
+
+</mapper>

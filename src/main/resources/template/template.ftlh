@@ -26,7 +26,7 @@
 
     <insert id="insert" parameterType="${entityPath}">
         INSERT INTO `${tableName}` (<#list filedMap?keys as key>`${key}`<#if !key?is_last>,</#if></#list>)
-        VALUES (<#list filedMap?keys as key>${r"#{"}${filedMap[key]}${r"}"}<#if !key?is_last>,</#if></#list>)
+        VALUES (<#list filedMap?keys as key><#if key == "gmt_created" || key == "gmt_modified">now()<#elseif key == "is_deleted">0<#else>${r"#{"}${filedMap[key]}${r"}"}</#if><#if !key?is_last>,</#if></#list>)
     </insert>
 
     <update id="update" parameterType="${entityPath}">
