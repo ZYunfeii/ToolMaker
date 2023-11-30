@@ -4,6 +4,7 @@
 <mapper namespace="com.yunfei.toolmaker.dao.FileDao">
     <sql id="allColumns">
         id AS id,
+        upload_id AS uploadId,
         gmt_created AS gmtCreated,
         gmt_modified AS gmtModified,
         payload AS payload,
@@ -33,6 +34,9 @@
         <where>
             <if test="id != null">
                 AND `file_upload`.`id` = #{id}
+            </if>
+            <if test="uploadId != null">
+                AND `file_upload`.`upload_id` = #{uploadId}
             </if>
             <if test="gmtCreated != null">
                 AND `file_upload`.`gmt_created` = #{gmtCreated}
@@ -72,6 +76,9 @@
             <if test="id != null">
                 AND `file_upload`.`id` = #{id}
             </if>
+            <if test="uploadId != null">
+                AND `file_upload`.`upload_id` = #{uploadId}
+            </if>
             <if test="gmtCreated != null">
                 AND `file_upload`.`gmt_created` = #{gmtCreated}
             </if>
@@ -102,8 +109,8 @@
     </select>
 
     <insert id="insert" parameterType="com.yunfei.toolmaker.po.FileDo">
-        INSERT INTO `file_upload` (`id`,`gmt_created`,`gmt_modified`,`payload`,`user_name`,`file_name`,`type`,`size`,`is_deleted`)
-        VALUES (#{id},now(),now(),#{payload},#{userName},#{fileName},#{type},#{size},0)
+        INSERT INTO `file_upload` (`id`,`upload_id`, `gmt_created`,`gmt_modified`,`payload`,`user_name`,`file_name`,`type`,`size`,`is_deleted`)
+        VALUES (#{id},#{uploadId},now(),now(),#{payload},#{userName},#{fileName},#{type},#{size},0)
     </insert>
 
     <update id="update" parameterType="com.yunfei.toolmaker.po.FileDo">
@@ -111,6 +118,9 @@
         <set>
             <if test="id != null">
                 `file_upload`.`id` = #{id},
+            </if>
+            <if test="uploadId != null">
+                `file_upload`.`upload_id` = #{uploadId},
             </if>
             <if test="gmtCreated != null">
                 `file_upload`.`gmt_created` = #{gmtCreated},
@@ -142,6 +152,16 @@
         `file_upload`.`id` = #{id}
     </update>
 
+    <update id="appendBlob" parameterType="com.yunfei.toolmaker.po.FileDo">
+        UPDATE `file_upload`
+        <set>
+            `file_upload`.`payload` = CONCAT(`file_upload`.`payload`, #{payload}),
+            `file_upload`.`size` = `file_upload`.`size` + #{size}
+        </set>
+        WHERE
+        `file_upload`.`upload_id` = #{uploadId}
+    </update>
+
     <update id="delete" parameterType="com.yunfei.toolmaker.po.FileDo">
         UPDATE `file_upload`
         SET is_deleted = 1
@@ -149,6 +169,9 @@
         <choose>
             <when test="id != null">
                 `file_upload`.`id` = #{id}
+            </when>
+            <when test="uploadId != null">
+                `file_upload`.`upload_id` = #{uploadId}
             </when>
             <when test="gmtCreated != null">
                 `file_upload`.`gmt_created` = #{gmtCreated}

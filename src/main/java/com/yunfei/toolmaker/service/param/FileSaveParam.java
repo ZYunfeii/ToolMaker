@@ -9,4 +9,5 @@ public class FileSaveParam {
     private String fileName;
     private String type;
     private Long size;
+    private Long uploadId;
 }

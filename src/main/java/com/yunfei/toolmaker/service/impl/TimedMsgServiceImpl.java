@@ -61,7 +61,7 @@ public class TimedMsgServiceImpl implements TimedMsgService {
                 // 1. 判断有无key
                 Boolean hasKey = zSetOperations.getOperations().hasKey(RedisConstant.TIMED_MSG_KEY);
                 if (hasKey == null || !hasKey) {
-                    log.info("the key doesn't exist.");
+                    // log.info("the key doesn't exist.");
                     return;
                 }
                 // 2. 拿到key对应zset的第一个元素

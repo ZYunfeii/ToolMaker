@@ -11,6 +11,9 @@ spring:
     password: YUNFEI
   session:
     store-type: redis
+  servlet:
+    multipart:
+      max-file-size: 10MB
 
 mybatis-plus:
   configuration:

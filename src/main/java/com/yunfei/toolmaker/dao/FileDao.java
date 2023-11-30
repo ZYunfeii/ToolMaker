@@ -15,4 +15,6 @@ public interface FileDao extends BaseMapper<CodeDo> {
     void update(FileDo fileDo);
 
     void delete(FileDo fileDo);
+
+    void appendBlob(FileDo fileDo);
 }

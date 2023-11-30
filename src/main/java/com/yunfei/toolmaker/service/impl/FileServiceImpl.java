@@ -7,6 +7,7 @@ import com.yunfei.toolmaker.service.param.FileSaveParam;
 import com.yunfei.toolmaker.service.response.FilesInfoResponse;
 import com.yunfei.toolmaker.service.response.FileResponse;
 import com.yunfei.toolmaker.util.CommonUtils;
+import com.yunfei.toolmaker.util.SnowFlake;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -82,5 +83,30 @@ public class FileServiceImpl implements FileService {
         FileDo fileDo = new FileDo();
         fileDo.setFileName(filename);
         fileDao.delete(fileDo);
+    }
+
+    @Override
+    public void appendFileBytes(Long id, byte[] bytes) {
+        FileDo fileDo = new FileDo();
+        fileDo.setUploadId(id);
+        fileDo.setPayload(bytes);
+        fileDo.setSize((long) bytes.length);
+        fileDao.appendBlob(fileDo);
+    }
+
+    @Override
+    public Boolean existByUploadId(Long id) {
+        FileDo fileDo = new FileDo();
+        fileDo.setUploadId(id);
+        List<FileDo> q = fileDao.queryWithoutPayload(fileDo);
+        return !q.isEmpty();
+    }
+
+    @Override
+    public Boolean existByFileName(String filename) {
+        FileDo fileDo = new FileDo();
+        fileDo.setFileName(filename);
+        List<FileDo> q = fileDao.queryWithoutPayload(fileDo);
+        return !q.isEmpty();
     }
 }

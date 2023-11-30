@@ -13,4 +13,10 @@ public interface FileService {
     String getUserNameFromFileName(String filename);
 
     void deleteFile(String filename);
+
+    void appendFileBytes(Long id, byte[] bytes);
+
+    Boolean existByUploadId(Long id);
+
+    Boolean existByFileName(String filename);
 }

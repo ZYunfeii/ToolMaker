@@ -8,6 +8,7 @@ import lombok.Data;
 public class FileDo {
     @TableId(type = IdType.AUTO)
     private Long id;
+    private Long uploadId;
     private String gmtCreated;
     private String gmtModified;
     private byte[] payload;
