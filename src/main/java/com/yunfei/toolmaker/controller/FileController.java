@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -69,7 +70,7 @@ public class FileController extends BaseController {
 
     @GetMapping("/download/{filename}")
     public ResponseEntity<byte[]> downloadFile(@PathVariable String filename, HttpSession session) {
-        FileResponse response = fileService.getFileBytesWithFileName(filename);
+        FileResponse response = fileService.getFileBytesWithFileName(filename, getUserName(session));
 
         HttpHeaders headers = new HttpHeaders();
         if (!response.getUserName().equals(getUserName(session))) {
@@ -104,6 +105,14 @@ public class FileController extends BaseController {
     }
 
     private Map<Long, Integer> partNumberMap = new HashMap<>(12);
+
+    private static class FileChunk {
+        public long fileSize;
+        public String fileType;
+        public String fileName;
+        public byte[] payload;
+    }
+    private Map<Long, FileChunk> fileBytesMap = new HashMap<>(6);
     @PostMapping(value = "/upload/file/chunkApi", consumes = "multipart/form-data")
     public R chunkApi(@RequestParam("file") MultipartFile file, @RequestParam("partNumber") Integer partNumber,
                       @RequestParam("uploadId") String uploadId,
@@ -125,36 +134,51 @@ public class FileController extends BaseController {
 
         synchronized (this) {
             if (partNumber == 1) {
-                FileSaveParam fileSaveParam = new FileSaveParam();
-                fileSaveParam.setFileName(fileName);
-                fileSaveParam.setSize(fileSize);
-                fileSaveParam.setType(fileType);
-                fileSaveParam.setPayload(fileBytes);
-                fileSaveParam.setUserName(getUserName(session));
-                fileSaveParam.setUploadId(Long.valueOf(uploadId));
-                fileService.saveFile(fileSaveParam);
                 partNumberMap.put(Long.valueOf(uploadId), 1);
-                notifyAll();
+                FileChunk fileChunk = new FileChunk();
+                fileChunk.fileName = fileName;
+                fileChunk.fileSize = fileSize;
+                fileChunk.fileType = fileType;
+                fileChunk.payload = fileBytes;
+                fileBytesMap.put(Long.valueOf(uploadId), fileChunk);
             } else {
                 Long id = Long.valueOf(uploadId);
-                while (!fileService.existByUploadId(Long.valueOf(uploadId)) ||
-                        (partNumberMap.get(id) != null && partNumberMap.get(id) + 1 != partNumber)) {
+                while (partNumberMap.get(id) == null || partNumberMap.get(id) + 1 != partNumber) {
                     wait();
                 }
                 partNumberMap.put(id, partNumberMap.get(id) + 1);
-                fileService.appendFileBytes(Long.valueOf(uploadId), fileBytes);
-                notifyAll();
+                FileChunk fileChunk = fileBytesMap.get(id);
+                fileChunk.fileSize += fileSize;
+
+                byte[] newPayload = Arrays.copyOf(fileChunk.payload, fileChunk.payload.length + fileBytes.length);
+                System.arraycopy(fileBytes, 0, newPayload, fileChunk.payload.length, fileBytes.length);
+
+                fileChunk.payload = newPayload;
             }
+
+            notifyAll();
         }
 
         return R.ok().setData(m);
     }
 
     @PostMapping("/upload/file/finishChunkApi")
-    public R finishChunkApi(@RequestBody ChunkFinishedInfo chunkFinishedInfo) {
+    public R finishChunkApi(@RequestBody ChunkFinishedInfo chunkFinishedInfo, HttpSession session) throws IllegalAccessException {
         Map<String, Object> m = new HashMap<>();
         m.put("value", "");
-        partNumberMap.remove(Long.valueOf(chunkFinishedInfo.getUploadId()));
+        Long uploadId = Long.valueOf(chunkFinishedInfo.getUploadId());
+        FileChunk fileChunk = fileBytesMap.get(uploadId);
+        FileSaveParam fileSaveParam = new FileSaveParam();
+        fileSaveParam.setFileName(fileChunk.fileName);
+        fileSaveParam.setSize(fileChunk.fileSize);
+        fileSaveParam.setType(fileChunk.fileType);
+        fileSaveParam.setPayload(fileChunk.payload);
+        fileSaveParam.setUserName(getUserName(session));
+        fileSaveParam.setUploadId(uploadId);
+        fileService.saveFile(fileSaveParam);
+
+        partNumberMap.remove(uploadId);
+        fileBytesMap.remove(uploadId);
         return R.ok().setData(m);
     }
 

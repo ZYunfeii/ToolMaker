@@ -48,9 +48,10 @@ public class FileServiceImpl implements FileService {
     }
 
     @Override
-    public FileResponse getFileBytesWithFileName(String filename) {
+    public FileResponse getFileBytesWithFileName(String filename, String userName) {
         FileDo fileDo = new FileDo();
         fileDo.setFileName(filename);
+        fileDo.setUserName(userName);
         List<FileDo> querys = fileDao.query(fileDo);
         if (querys.isEmpty()) {
             log.info("{} doesn't exist.", filename);

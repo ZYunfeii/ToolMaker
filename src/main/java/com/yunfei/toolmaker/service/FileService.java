@@ -8,7 +8,7 @@ public interface FileService {
     void saveFile(FileSaveParam fileSaveParam) throws IllegalAccessException;
     FilesInfoResponse getFilesInfoWithUserName(String userName);
 
-    FileResponse getFileBytesWithFileName(String filename);
+    FileResponse getFileBytesWithFileName(String filename, String userName);
 
     String getUserNameFromFileName(String filename);
 
