@@ -15,6 +15,7 @@ spring:
     multipart:
       max-file-size: 10MB
 
+
 mybatis-plus:
   configuration:
     use-generated-keys: true
@@ -42,3 +43,32 @@ logging:
   level:
     root: debug
   config: classpath:logback.xml
+
+knife4j:
+  enable: true
+  documents:
+    - group: Test Group
+      name: My Documents
+      locations: classpath:wiki/*
+  setting:
+    # default lang
+    language: en-US
+    # footer
+    enableFooter: false
+    enableFooterCustom: true
+    footerCustomContent: MIT | [Tool Maker]()
+    # header
+    enableHomeCustom: true
+    homeCustomLocation: classpath:wiki/README.md
+    # models
+    enableSwaggerModels: true
+    swaggerModelName: My Models
+
+rocketmq:
+  name-server: 123.56.98.228:9876
+  producer:
+    group: platform-sms-server-group
+    sendMessageTimeout: 10000
+  consumer1:
+    group: platform-sms-worker-common-group
+    topic: sms-common-topic

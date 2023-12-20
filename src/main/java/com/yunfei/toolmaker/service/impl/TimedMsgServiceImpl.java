@@ -22,7 +22,6 @@ import org.springframework.util.CollectionUtils;
 import javax.annotation.PostConstruct;
 import javax.mail.MessagingException;
 import java.security.GeneralSecurityException;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ScheduledThreadPoolExecutor;

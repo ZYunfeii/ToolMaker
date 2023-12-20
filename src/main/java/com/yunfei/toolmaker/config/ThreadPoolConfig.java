@@ -22,6 +22,6 @@ public class ThreadPoolConfig {
 
     @Bean
     public ScheduledThreadPoolExecutor scheduledThreadPoolExecutor() {
-        return new ScheduledThreadPoolExecutor(1);
+        return new ScheduledThreadPoolExecutor(2);
     }
 }

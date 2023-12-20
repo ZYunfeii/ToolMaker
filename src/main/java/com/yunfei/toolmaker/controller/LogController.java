@@ -17,7 +17,6 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 import static com.yunfei.toolmaker.constant.AuthServerConstant.LOGIN_USER;
-
 @Controller
 public class LogController {
     @Autowired
