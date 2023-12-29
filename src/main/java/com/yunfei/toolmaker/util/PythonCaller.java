@@ -12,18 +12,14 @@ import java.nio.charset.StandardCharsets;
 @Slf4j
 public class PythonCaller {
 
-    public static String call(String pythonScript, String[] args) {
-        URL resourceFolderURL = PythonCaller.class.getClassLoader().getResource(pythonScript);
-        String resourceFolderPath = resourceFolderURL.getPath();
-        if (resourceFolderPath.startsWith("/")) {
-            resourceFolderPath = resourceFolderPath.substring(1);
-        }
+    public static String call(String pythonScriptPath, String[] args) {
+        log.info("scripts:{}", pythonScriptPath);
         try {
             // 创建Runtime对象
             Runtime runtime = Runtime.getRuntime();
 
             // 定义Python脚本路径和参数
-            String[] cmd = {"python", resourceFolderPath};
+            String[] cmd = {"python", pythonScriptPath};
 
             String[] input = new String[cmd.length + args.length];
             System.arraycopy(cmd, 0, input, 0, cmd.length);
@@ -48,6 +44,7 @@ public class PythonCaller {
 
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
+            log.error(e.getMessage());
         }
         return null;
     }

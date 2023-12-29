@@ -64,11 +64,11 @@ knife4j:
     enableSwaggerModels: true
     swaggerModelName: My Models
 
-rocketmq:
-  name-server: 123.56.98.228:9876
-  producer:
-    group: platform-sms-server-group
-    sendMessageTimeout: 10000
-  consumer1:
-    group: platform-sms-worker-common-group
-    topic: sms-common-topic
+#rocketmq:
+#  name-server: 123.56.98.228:9876
+#  producer:
+#    group: platform-sms-server-group
+#    sendMessageTimeout: 10000
+#  consumer1:
+#    group: platform-sms-worker-common-group
+#    topic: sms-common-topic
