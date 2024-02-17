@@ -185,6 +185,13 @@
             <version>2.7.2</version>
         </dependency>
 
+        <!--    日常测试用    -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+
+
 
     </dependencies>
 

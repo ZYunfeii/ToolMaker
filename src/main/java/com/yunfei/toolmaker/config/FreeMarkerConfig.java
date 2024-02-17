@@ -7,7 +7,7 @@ public class FreeMarkerConfig {
 
     public static Configuration getConfig() {
         Configuration configuration = new Configuration(Configuration.getVersion());
-        configuration.setClassForTemplateLoading(FreeMarkerConfig.class, "/template");
+        configuration.setClassForTemplateLoading(FreeMarkerConfig.class, "/templates");
         configuration.setDefaultEncoding("UTF-8");
         configuration.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER);
 

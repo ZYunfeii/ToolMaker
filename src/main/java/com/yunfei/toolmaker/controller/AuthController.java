@@ -37,7 +37,7 @@ public class AuthController {
             return R.ok();
         }
     }
-    @ApiOperation("login")
+    @ApiOperation("static/login")
     @ApiImplicitParam(name = "info", type = "body", dataTypeClass = UserRegisterInfo.class, required = true)
     @PostMapping("/login")
     public R login(@RequestBody UserRegisterInfo info, HttpSession session) {
