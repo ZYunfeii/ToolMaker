@@ -7,6 +7,7 @@ public enum ErrorCodeEnum {
     USER_NOT_LOGIN(500, "请先登录"),
     USER_NOT_ADMIN(500, "您不是管理员"),
     TIMED_MSG_PARA_ERROR(500, "参数不正确"),
+    SET_SESSION_ERROR(500, "session id不存在"),
     FILE_UPLOAD_EMPTY_ERROR(500, "上传文件为空"),
     FILE_UPLOAD_ERROR(500, "上传文件后端处理错误");
     private final int code;
