@@ -1,0 +1,16 @@
+{
+  "groups": [
+    {
+      "name": "codegen.mybatis-mapper",
+      "type": "com.yunfei.toolmaker.service.impl.MybatisXmlGenServiceImpl",
+      "sourceType": "com.yunfei.toolmaker.service.impl.MybatisXmlGenServiceImpl"
+    },
+    {
+      "name": "email-sender",
+      "type": "com.yunfei.toolmaker.util.EmailSender",
+      "sourceType": "com.yunfei.toolmaker.util.EmailSender"
+    }
+  ],
+  "properties": [],
+  "hints": []
+}
