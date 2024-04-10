@@ -5,45 +5,56 @@
 </head>
 <body class="gray-bg">
 	<style>
-		/* 仅作用于带有 "my-form" 类的表单 */
 		.my-form label {
-			display: block;
-			margin-bottom: 5px;
+			/* 添加样式规则 */
+			color: black;
 			font-weight: bold;
 		}
 
 		.my-form input[type="text"],
 		.my-form input[type="password"] {
-			padding: 8px;
-			border: 1px solid #ccc;
-			border-radius: 4px;
+			/* 添加样式规则 */
 			width: 200px;
-			margin-bottom: 10px;
+			padding: 5px;
 		}
 
-		.my-form button {
-			padding: 10px 20px;
-			background-color: #4CAF50;
+		.my-form button[type="submit"] {
+			/* 添加样式规则 */
+			background-color: green;
 			color: white;
-			border: none;
-			border-radius: 4px;
+			padding: 10px;
 			cursor: pointer;
+			border-radius: 15px;
 		}
+
 	</style>
-	<form id="configForm" class="my-form">
-		<label for="driverClassName">Driver Class Name:</label>
-		<input type="text" id="driverClassName" name="driverClassName" value="com.mysql.jdbc.Driver" required>
-		<label for="url">JDBC URL:</label>
-		<input type="text" id="url" name="url" required>
-		<label for="username">Username:</label>
-		<input type="text" id="username" name="username" required>
-		<label for="password">Password:</label>
-		<input type="password" id="password" name="password" required><br><br>
-		<button type="submit">Submit</button>
-	</form>
+<!--	<div class="dbinfo-div">-->
+<!--		<form id="configForm" class="my-form">-->
+<!--			<label for="driverClassName">Driver Class Name:</label>-->
+<!--			<input type="text" id="driverClassName" name="driverClassName" value="com.mysql.jdbc.Driver" required>-->
+<!--			<label for="url">JDBC URL:</label>-->
+<!--			<input type="text" id="url" name="url" required>-->
+<!--			<label for="username">Username:</label>-->
+<!--			<input type="text" id="username" name="username" required>-->
+<!--			<label for="password">Password:</label>-->
+<!--			<input type="password" id="password" name="password" required><br><br>-->
+<!--			<button type="submit">Submit</button>-->
+<!--		</form>-->
+<!--	</div>-->
     <div class="container-div">
 		<div class="row">
 			<div class="col-sm-12 search-collapse">
+				<form id="configForm" class="my-form">
+					<label for="driverClassName">Driver Class Name:</label>
+					<input type="text" id="driverClassName" name="driverClassName" value="com.mysql.jdbc.Driver" required>
+					<label for="url">JDBC URL:</label>
+					<input type="text" id="url" name="url" required>
+					<label for="username">Username:</label>
+					<input type="text" id="username" name="username" required>
+					<label for="password">Password:</label>
+					<input type="password" id="password" name="password" required>
+					<button type="submit">Submit</button>
+				</form>
 				<form id="gen-form">
 					<div class="select-list">
 						<ul>

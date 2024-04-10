@@ -19,7 +19,7 @@ import utils.com.yunfei.toolmaker.StringUtils;
 import org.springframework.transaction.annotation.Transactional;
 import ${packageName}.domain.${subClassName};
 #end
-import ${packageName}.mapper.${ClassName}Mapper;
+import ${packageName}.dao.${ClassName}Dao;
 import ${packageName}.domain.${ClassName};
 import ${packageName}.service.I${ClassName}Service;
 import text.core.com.yunfei.toolmaker.Convert;
@@ -34,7 +34,7 @@ import text.core.com.yunfei.toolmaker.Convert;
 public class ${ClassName}ServiceImpl implements I${ClassName}Service 
 {
     @Autowired
-    private ${ClassName}Mapper ${className}Mapper;
+    private ${ClassName}Dao ${className}Dao;
 
     /**
      * 查询${functionName}
@@ -45,7 +45,7 @@ public class ${ClassName}ServiceImpl implements I${ClassName}Service
     @Override
     public ${ClassName} select${ClassName}By${pkColumn.capJavaField}(${pkColumn.javaType} ${pkColumn.javaField})
     {
-        return ${className}Mapper.select${ClassName}By${pkColumn.capJavaField}(${pkColumn.javaField});
+        return ${className}Dao.select${ClassName}By${pkColumn.capJavaField}(${pkColumn.javaField});
     }
 
     /**
@@ -57,7 +57,7 @@ public class ${ClassName}ServiceImpl implements I${ClassName}Service
     @Override
     public List<${ClassName}> select${ClassName}List(${ClassName} ${className})
     {
-        return ${className}Mapper.select${ClassName}List(${className});
+        return ${className}Dao.select${ClassName}List(${className});
     }
 
     /**
@@ -78,11 +78,11 @@ public class ${ClassName}ServiceImpl implements I${ClassName}Service
 #end
 #end
 #if($table.sub)
-        int rows = ${className}Mapper.insert${ClassName}(${className});
+        int rows = ${className}Dao.insert${ClassName}(${className});
         insert${subClassName}(${className});
         return rows;
 #else
-        return ${className}Mapper.insert${ClassName}(${className});
+        return ${className}Dao.insert${ClassName}(${className});
 #end
     }
 
@@ -104,10 +104,10 @@ public class ${ClassName}ServiceImpl implements I${ClassName}Service
 #end
 #end
 #if($table.sub)
-        ${className}Mapper.delete${subClassName}By${subTableFkClassName}(${className}.get${pkColumn.capJavaField}());
+        ${className}Dao.delete${subClassName}By${subTableFkClassName}(${className}.get${pkColumn.capJavaField}());
         insert${subClassName}(${className});
 #end
-        return ${className}Mapper.update${ClassName}(${className});
+        return ${className}Dao.update${ClassName}(${className});
     }
 
     /**
@@ -123,9 +123,9 @@ public class ${ClassName}ServiceImpl implements I${ClassName}Service
     public int delete${ClassName}By${pkColumn.capJavaField}s(String ${pkColumn.javaField}s)
     {
 #if($table.sub)
-        ${className}Mapper.delete${subClassName}By${subTableFkClassName}s(Convert.toStrArray(${pkColumn.javaField}s));
+        ${className}Dao.delete${subClassName}By${subTableFkClassName}s(Convert.toStrArray(${pkColumn.javaField}s));
 #end
-        return ${className}Mapper.delete${ClassName}By${pkColumn.capJavaField}s(Convert.toStrArray(${pkColumn.javaField}s));
+        return ${className}Dao.delete${ClassName}By${pkColumn.capJavaField}s(Convert.toStrArray(${pkColumn.javaField}s));
     }
 
     /**
@@ -141,9 +141,9 @@ public class ${ClassName}ServiceImpl implements I${ClassName}Service
     public int delete${ClassName}By${pkColumn.capJavaField}(${pkColumn.javaType} ${pkColumn.javaField})
     {
 #if($table.sub)
-        ${className}Mapper.delete${subClassName}By${subTableFkClassName}(${pkColumn.javaField});
+        ${className}Dao.delete${subClassName}By${subTableFkClassName}(${pkColumn.javaField});
 #end
-        return ${className}Mapper.delete${ClassName}By${pkColumn.capJavaField}(${pkColumn.javaField});
+        return ${className}Dao.delete${ClassName}By${pkColumn.capJavaField}(${pkColumn.javaField});
     }
 #if($table.tree)
 
@@ -155,7 +155,7 @@ public class ${ClassName}ServiceImpl implements I${ClassName}Service
     @Override
     public List<Ztree> select${ClassName}Tree()
     {
-        List<${ClassName}> ${className}List = ${className}Mapper.select${ClassName}List(new ${ClassName}());
+        List<${ClassName}> ${className}List = ${className}Dao.select${ClassName}List(new ${ClassName}());
         List<Ztree> ztrees = new ArrayList<Ztree>();
         for (${ClassName} ${className} : ${className}List)
         {
@@ -205,7 +205,7 @@ public class ${ClassName}ServiceImpl implements I${ClassName}Service
             }
             if (list.size() > 0)
             {
-                ${className}Mapper.batch${subClassName}(list);
+                ${className}Dao.batch${subClassName}(list);
             }
         }
     }

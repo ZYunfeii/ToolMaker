@@ -8,13 +8,13 @@ import ${packageName}.domain.${subClassName};
 #end
 
 /**
- * ${functionName}Mapper接口
+ * ${functionName}Dao接口
  * 
  * @author ${author}
  * @date ${datetime}
  */
 @Mapper
-public interface ${ClassName}Mapper 
+public interface ${ClassName}Dao
 {
     /**
      * 查询${functionName}

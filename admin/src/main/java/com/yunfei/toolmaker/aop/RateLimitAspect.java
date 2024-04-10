@@ -21,7 +21,7 @@ import java.util.concurrent.ConcurrentHashMap;
 @Component
 public class RateLimitAspect {
 
-    private final Map<String, RateLimiter> EXISTED_RATE_LIMITERS = new HashMap<>();
+    private final Map<String, RateLimiter> EXISTED_RATE_LIMITERS = new ConcurrentHashMap<>();
 
     @Pointcut("@annotation(com.yunfei.toolmaker.annotation.RateLimit)")
     public void rateLimit() {
