@@ -1,0 +1,3 @@
+[submodule "toolmaker-vue"]
+	path = toolmaker-vue
+	url = git@github.com:ZYunfeii/toolmaker-vue.git
