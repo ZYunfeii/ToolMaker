@@ -30,6 +30,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<UserDo> select(UserDo userDo) {
+        List<UserDo> query = userQueryDao.query(userDo);
+        return query;
+    }
+
+    @Override
     public Boolean passwordMatch(String userName, String password) {
         UserDo userDo = new UserDo();
         userDo.setName(userName);

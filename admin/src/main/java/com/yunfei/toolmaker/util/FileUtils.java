@@ -7,6 +7,8 @@ import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBo
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class FileUtils {
     public static StreamingResponseBody getStreamingOfFile(String filePath) throws IOException {
@@ -22,5 +24,26 @@ public class FileUtils {
             }
         };
         return stream;
+    }
+
+    public static String generateIdentifier(File file) throws Exception {
+        MessageDigest md = MessageDigest.getInstance("MD5");
+        FileInputStream fis = new FileInputStream(file);
+
+        byte[] buffer = new byte[1024];
+        int bytesRead;
+        while ((bytesRead = fis.read(buffer)) != -1) {
+            md.update(buffer, 0, bytesRead);
+        }
+
+        byte[] digest = md.digest();
+        StringBuilder identifier = new StringBuilder();
+        for (byte b : digest) {
+            identifier.append(String.format("%02x", b));
+        }
+
+        fis.close();
+
+        return identifier.toString();
     }
 }
