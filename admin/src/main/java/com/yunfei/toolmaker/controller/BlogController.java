@@ -1,14 +1,23 @@
 package com.yunfei.toolmaker.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.yunfei.toolmaker.exception.ErrorCodeEnum;
 import com.yunfei.toolmaker.util.CommandRunner;
 import com.yunfei.toolmaker.util.FileUtils;
+import com.yunfei.toolmaker.util.PageInfo;
 import com.yunfei.toolmaker.util.R;
 import lombok.Builder;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.session.Session;
+import org.apache.shiro.subject.Subject;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.nio.file.Files;
 import java.util.ArrayList;
@@ -31,17 +40,40 @@ import java.util.concurrent.atomic.AtomicReference;
 @RequestMapping("/api")
 public class BlogController {
 
-    private static final String jekyllProjectPath = "F:\\OneDrive\\日常coding\\yunfei.github.io";
+    private static final String jekyllProjectPath = "/root/project/zyunfeii.github.io";
 
     private static final String postsDirName = "_posts";
 
     private static final String blogsPath = jekyllProjectPath + File.separator + postsDirName;
 
     private static List<String> uploadJekyllProjectToGithubCommandList = new ArrayList<String>(){{
-        add("git add .");
+        add("git add -A");
         add("git commit -m 'docs: auto commit blog'");
         add("git push");
     }};
+
+    @PostMapping("/login")
+    public R blogLogin(@RequestBody Map<String, Object> requestBody) {
+        String username = (String) requestBody.get("username");
+        String password = (String) requestBody.get("password");
+        try{
+            //省略了其他的常规代码，比如判断字段是否为空之类的
+            //此Subject就是开头提到的  代表当前用户
+            Subject subject = SecurityUtils.getSubject();
+            //用请求的用户名和密码创建UsernamePasswordToken(此类来自shiro包下)
+            UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(username, password);
+            //调用subject.login进行验证，验证不通过则会抛出AuthenticationException异常，然后自定义返回信息
+            subject.login(usernamePasswordToken);
+            //未抛异常 则验证通过
+            //此Session也来自shiro包  是对传统的HttpSession的封装，可以看做是一样的
+//            Session session = subject.getSession();
+        } catch (AuthenticationException e) {
+            //这行也是自定义的代码，随你怎么写
+            return R.error("认证失败！原因：" + e.getMessage());
+        }
+        return R.ok();
+    }
+
 
 
     @Builder
@@ -51,18 +83,30 @@ public class BlogController {
         private String content;
         private Long fileSize;
         private String identifier;
+        private String url;
     }
-    @GetMapping("/blog/list")
-    public R getBlogList() {
+    @GetMapping(value = "/blog/list", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public R getBlogList(@RequestParam("page") int page, @RequestParam("pageSize") int pageSize) {
         List<File> fileList = processDirectory(new File(blogsPath));
         List<BlogFileEntry> blogFileEntries = new ArrayList<>();
         AtomicReference<Boolean> exceptionFlag = new AtomicReference<>(false);
         fileList.forEach((f)->{
             BlogFileEntry entry = null;
             try {
-                entry = BlogFileEntry.builder().fileSize(f.length()).
-                        fileName(f.getName()).content(readFileContent(f)).identifier(FileUtils.generateIdentifier(f))
-                .build();
+                int firstIndex = f.getName().indexOf("-");
+                int secondIndex = f.getName().indexOf("-", firstIndex + 1);
+                int thirdIndex = f.getName().indexOf("-", secondIndex + 1);
+                int dotIndex = f.getName().indexOf(".md");
+                String title = null;
+                if (firstIndex != -1 && secondIndex != -1 && thirdIndex != -1 && dotIndex != -1 && thirdIndex < dotIndex) {
+                    title = f.getName().substring(thirdIndex + 1, dotIndex);
+                } else {
+                    log.info("Invalid title");
+                }
+                entry = BlogFileEntry.builder().fileSize(f.length())
+                                .fileName(f.getName()).content(readFileContent(f)).identifier(FileUtils.generateIdentifier(f))
+                                .url("http://zyunfeii.github.io/posts/" + title)
+                                .build();
             } catch (Exception e) {
                 exceptionFlag.set(true);
                 log.error(e.getMessage());
@@ -73,8 +117,14 @@ public class BlogController {
             return R.error("生成blog信息时异常!");
         }
 
+        List<BlogFileEntry> blogEntriesAfterPagination = new ArrayList<>(blogFileEntries.subList(
+                (page - 1) * pageSize,
+                Math.min((page - 1) * pageSize + pageSize, blogFileEntries.size())
+        ));
+
         R ok = R.ok();
-        ok.setData(JSON.toJSONString(blogFileEntries));
+        PageInfo pageInfo = new PageInfo(fileList.size(), page, pageSize, blogEntriesAfterPagination);
+        ok.setData(JSON.toJSONString(pageInfo));
         return ok;
     }
 
@@ -141,18 +191,22 @@ public class BlogController {
         List<File> fileList = new ArrayList<>();
         // 获取目录下的所有文件和子目录
         File[] files = directory.listFiles();
+        log.info("find {} files", files.length);
 
         if (files != null) {
             for (File file : files) {
                 if (file.isFile()) {
+                    log.info("{} is a file.", file.getName());
                     // 处理文件
                     fileList.add(file);
                 } else if (file.isDirectory()) {
+                    log.info("{} is not a file.", file.getName());
                     // 递归处理子目录
-                    processDirectory(file);
+                    fileList.addAll(processDirectory(file));
                 }
             }
         }
+        log.info("find {} blogs", fileList.size());
         return fileList;
     }
 

@@ -1,6 +1,7 @@
 package com.yunfei.generator.exception;
 
 import com.yunfei.common.core.domain.R;
+import com.yunfei.generator.controller.GenController;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @date: 2024/3/14 20:09
  * @version: 1.0
  */
-@ControllerAdvice
+@ControllerAdvice(assignableTypes = {GenController.class})
 public class GlobalExceptionHandler {
     @ExceptionHandler(TargetDataSourceException.class)
     @ResponseBody

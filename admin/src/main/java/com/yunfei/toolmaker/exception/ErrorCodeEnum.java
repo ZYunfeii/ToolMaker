@@ -9,7 +9,8 @@ public enum ErrorCodeEnum {
     TIMED_MSG_PARA_ERROR(500, "参数不正确"),
     SET_SESSION_ERROR(500, "session id不存在"),
     FILE_UPLOAD_EMPTY_ERROR(500, "上传文件为空"),
-    FILE_UPLOAD_ERROR(500, "上传文件后端处理错误");
+    FILE_UPLOAD_ERROR(500, "上传文件后端处理错误"),
+    SHIRO_NOT_LOGIN(40001, "未登录");
     private final int code;
     private final String msg;
     ErrorCodeEnum(int code, String msg) {
