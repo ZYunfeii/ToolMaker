@@ -46,7 +46,7 @@ public class BlogController {
 
     private static final String blogsPath = jekyllProjectPath + File.separator + postsDirName;
 
-    private static List<String> uploadJekyllProjectToGithubCommandList = new ArrayList<String>(){{
+    private static final List<String> uploadJekyllProjectToGithubCommandList = new ArrayList<String>(){{
         add("git add -A");
         add("git commit -m 'docs: auto commit blog'");
         add("git push");
@@ -74,7 +74,16 @@ public class BlogController {
         return R.ok();
     }
 
-
+    @GetMapping("/isLogin")
+    public R isLogin() {
+        Subject currentUser = SecurityUtils.getSubject();
+        if (currentUser.isAuthenticated()) {
+            // 如果已经登录就返回用户名称
+            return R.ok(currentUser.getPrincipal().toString());
+        } else {
+            return R.error(ErrorCodeEnum.SHIRO_NOT_LOGIN.getCode(), ErrorCodeEnum.SHIRO_NOT_LOGIN.getMsg());
+        }
+    }
 
     @Builder
     @Data
